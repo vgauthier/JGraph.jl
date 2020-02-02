@@ -16,6 +16,7 @@ makedocs(;
     doctest  = true,
 )
 
+
 deploydocs(;
     repo="github.com/vgauthier/JGraph.jl"
 )
