@@ -2,7 +2,7 @@ using Documenter, JGraph
 
 makedocs(;
     modules=[JGraph],
-    format=Documenter.HTML(),
+    format=Documenter.HTML(prettyurls = true),
     pages=[
         "Home" => "index.md",
     ],
