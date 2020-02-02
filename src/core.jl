@@ -12,3 +12,5 @@ julia> greet()
 ```
 """
 greet() = "Hello World!"
+
+abstract type AbstractGraph end

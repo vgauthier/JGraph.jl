@@ -15,8 +15,7 @@ makedocs(;
     authors="Vincent Gauthier",
     doctest  = true,
 )
-if CI
-    deploydocs(;
-        repo="github.com/vgauthier/JGraph.jl.git"
-    )
-end
+
+deploydocs(;
+    repo="github.com/vgauthier/JGraph.jl",
+)
