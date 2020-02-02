@@ -1,5 +1,9 @@
-push!(LOAD_PATH,"../src/")
-using Documenter, JGraph
+using Pkg
+Pkg.activate(@__DIR__)
+
+CI = get(ENV, "CI", nothing) == "true"
+using JGraph
+using Documenter
 
 makedocs(;
     modules=[JGraph],
@@ -9,11 +13,10 @@ makedocs(;
     ],
     sitename="JGraph.jl",
     authors="Vincent Gauthier",
-    doctest  = false,
+    doctest  = true,
 )
-
-deploydocs(;
-    repo="github.com/vgauthier/JGraph.jl.git",
-    branch = "gh-pages",
-    target = "build",
-)
+if CI
+    deploydocs(;
+        repo="github.com/vgauthier/JGraph.jl.git"
+    )
+end
