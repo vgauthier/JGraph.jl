@@ -1,0 +1,13 @@
+name = "JGraph"
+uuid = "6d547996-45a2-11ea-31c5-093a20f2e7e0"
+authors = ["Vincent Gauthier"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
