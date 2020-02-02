@@ -1,5 +1,9 @@
 module JGraph
 
-greet() = print("Hello World!")
+# export 
+export greet
+
+# Include 
+include("core.jl")
 
 end # module
