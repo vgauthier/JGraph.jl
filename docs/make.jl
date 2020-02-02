@@ -17,6 +17,5 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/vgauthier/JGraph.jl",
-    branch="gh-pages",
+    repo="github.com/vgauthier/JGraph.jl"
 )
