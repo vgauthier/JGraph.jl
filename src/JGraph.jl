@@ -1,9 +1,17 @@
 module JGraph
 
-# export 
-export greet
+# export
+export  AbstractGraph,
+        Graph,
+        nv,
+        ne,
+        has_edge,
+        add_edge!,
+        add_vertex!,
+        degree
 
-# Include 
+
+# Include
 include("core.jl")
 
 end # module
