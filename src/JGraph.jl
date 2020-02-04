@@ -1,5 +1,7 @@
 module JGraph
 
+using Distributions
+
 # export
 export  AbstractGraph,
         Graph,
@@ -10,8 +12,10 @@ export  AbstractGraph,
         add_vertex!,
         degree
 
+export  erdos_renyi
 
 # Include
 include("core.jl")
+include("random.jl")
 
 end # module

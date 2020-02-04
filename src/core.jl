@@ -9,6 +9,22 @@ mutable struct Graph{T <: Integer} <: AbstractGraph
     end
 end
 
+function Graph(n, m)
+    g = Graph();
+    add_vertex!(g, n);
+    num_vertice = 0
+
+    while num_vertice < m
+        s = rand(1:n)
+        t = rand(1:n)
+        if s != t && !has_edge(g, s, t)
+            add_edge!(g, s, t);
+            num_vertice += 1
+        end
+    end
+    return g
+end
+
 nv(G::AbstractGraph) = length(G.adjlist)
 
 ne(G::AbstractGraph) = G.ne
@@ -45,7 +61,7 @@ function add_vertex!(G::AbstractGraph)
     push!(G.adjlist, Vector{Int}());
 end
 
-function degree(G::AbstractGraph)
+function degree(G::Graph)
     degree_list = []
     for u in G.adjlist
         push!(degree_list, length(u))

@@ -3,6 +3,9 @@ uuid = "6d547996-45a2-11ea-31c5-093a20f2e7e0"
 authors = ["Vincent Gauthier"]
 version = "0.1.0"
 
+[deps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+
 [compat]
 julia = "1"
 
