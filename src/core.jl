@@ -70,3 +70,7 @@ function degree(G::Graph)
     end
     degree_list
 end
+
+function neighbors(G::Graph, u)
+    return G.adjlist[u]
+end
