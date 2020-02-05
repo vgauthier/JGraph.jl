@@ -1,7 +1,6 @@
 using Pkg
 Pkg.activate(@__DIR__)
 
-CI = get(ENV, "CI", nothing) == "true"
 using JGraph
 using Documenter
 
@@ -18,8 +17,10 @@ makedocs(;
 
 
 deploydocs(;
+    target = "build",
+    branch = "gh-pages",
     repo="github.com/vgauthier/JGraph.jl",
     devbranch = "master",
     devurl = "dev",
-    versions = ["stable" => "v^", "v#.#", devurl => devurl]
+    versions = ["stable" => "v^", "v#.#", "dev" => "dev"]
 )
