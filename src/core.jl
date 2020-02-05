@@ -41,7 +41,7 @@ end
 
 function add_edge!(G::AbstractGraph, u::T, v::T) where T <: Integer
     if has_edge(G, u, v)
-        return true
+        return false
     end
     if nv(G) < max(u,v)
         add_vertex!(G, max(u,v));
@@ -49,6 +49,7 @@ function add_edge!(G::AbstractGraph, u::T, v::T) where T <: Integer
     push!(G.adjlist[u], v);
     push!(G.adjlist[v], u);
     G.ne += 1;
+    return true
 end
 
 function add_vertex!(G::AbstractGraph, num_vertex::T) where T <: Integer
