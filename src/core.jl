@@ -56,10 +56,11 @@ function add_vertex!(G::AbstractGraph, num_vertex::T) where T <: Integer
     while nv(G) < num_vertex
         add_vertex!(G);
     end
+    return true
 end
 
 function add_vertex!(G::AbstractGraph)
-    push!(G.adjlist, Vector{Int}());
+    return push!(G.adjlist, Vector{Int}());
 end
 
 function degree(G::Graph)
