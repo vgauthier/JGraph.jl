@@ -18,5 +18,8 @@ makedocs(;
 
 
 deploydocs(;
-    repo="github.com/vgauthier/JGraph.jl"
+    repo="github.com/vgauthier/JGraph.jl",
+    devbranch = "master",
+    devurl = "dev",
+    versions = ["stable" => "v^", "v#.#", devurl => devurl]
 )
