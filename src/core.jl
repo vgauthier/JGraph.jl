@@ -47,7 +47,7 @@ end
 """
     add_edge(G::AbstractGraph, u::T, v::T)
 
-add egde(u,v) in the graph G. return False is the edge already exit, true otherwise. 
+Add the egde(u,v) in the graph G. Return False is the edge already exit, true otherwise. 
 """
 function add_edge!(G::AbstractGraph, u::T, v::T) where T <: Integer
     if has_edge(G, u, v)
