@@ -29,6 +29,11 @@ nv(G::AbstractGraph) = length(G.adjlist)
 
 ne(G::AbstractGraph) = G.ne
 
+"""
+    has_edge(G::AbstractGraph, u::T, v::T)
+
+Test if egde(u,v) exist in the graph G.
+"""
 function has_edge(G::AbstractGraph, u::T, v::T) where T <: Integer
     if max(u,v) > nv(G)
         return false
