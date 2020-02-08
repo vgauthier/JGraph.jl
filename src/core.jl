@@ -9,6 +9,11 @@ mutable struct Graph{T <: Integer} <: AbstractGraph
     end
 end
 
+"""
+    Graph(n, m)
+
+generate a graph with n vertices and m edges. Return a graph G.
+"""
 function Graph(n, m)
     g = Graph();
     add_vertex!(g, n);
@@ -78,6 +83,11 @@ function add_vertex!(G::AbstractGraph)
     return push!(G.adjlist, Vector{Int}());
 end
 
+"""
+    degree(G::Graph)
+
+Return the list of nodes degree.
+"""
 function degree(G::Graph)
     degree_list = []
     for u in G.adjlist
