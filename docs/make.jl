@@ -19,7 +19,7 @@ makedocs(;
 deploydocs(;
     target = "build",
     branch = "gh-pages",
-    repo="github.com/vgauthier/JGraph.jl",
+    repo="github.com/vgauthier/JGraph.jl.git",
     devbranch = "master",
     devurl = "dev",
     versions = ["stable" => "v^", "v#.#", "dev" => "dev"]
