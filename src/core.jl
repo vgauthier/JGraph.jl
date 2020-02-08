@@ -47,7 +47,7 @@ end
 """
     add_edge(G::AbstractGraph, u::T, v::T)
 
-Add the egde(u,v) in the graph G. Return False is the edge already exit, true otherwise. 
+Add the egde(u,v) in the graph G. Return False is the edge already exit, true otherwise.
 """
 function add_edge!(G::AbstractGraph, u::T, v::T) where T <: Integer
     if has_edge(G, u, v)
@@ -62,6 +62,11 @@ function add_edge!(G::AbstractGraph, u::T, v::T) where T <: Integer
     return true
 end
 
+"""
+    add_edge(G::AbstractGraph, num_vertex)
+
+Add "num_vertex" vertices to the graph G.
+"""
 function add_vertex!(G::AbstractGraph, num_vertex::T) where T <: Integer
     while nv(G) < num_vertex
         add_vertex!(G);
