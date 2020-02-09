@@ -48,6 +48,11 @@ end
     kmean = (n-1) * p
     g = erdos_renyi(n, p);
     @test mean(degree(g)) ≈ kmean atol=1e-1
+
+    g1 = erdos_renyi(n, p, seed=5);
+    g2 = erdos_renyi(n, p, seed=5);
+    @test nv(g1) == nv(g2)
+    @test ne(g1) == ne(g2)
 end
 
 @testset "JGraph.traversal" begin
