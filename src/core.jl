@@ -99,3 +99,5 @@ end
 function neighbors(G::Graph, u)
     return G.adjlist[u]
 end
+
+vertices(G::Graph) = (1:length(G.adjlist));

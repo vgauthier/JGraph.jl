@@ -33,6 +33,10 @@ using Statistics
     @test add_edge!(g, 2, 3) == true
     @test add_edge!(g, 3, 1) == true
     @test neighbors(g, 1) == [2, 3]
+
+    g = Graph();
+    add_vertex!(g, 10);
+    @test length(collect(vertices(g))) == 10
 end
 
 @testset "JGraph.generator" begin
@@ -61,4 +65,16 @@ end
     @test add_edge!(g, 2, 3) == true
     @test add_edge!(g, 3, 1) == true
     @test bfs(g, 1) == Set([2, 1, 3])
+
+    g = Graph();
+    add_vertex!(g, 6);
+    add_edge!(g, 1, 2);
+    add_edge!(g, 2, 3);
+    add_edge!(g, 1, 3);
+
+    add_edge!(g, 4, 5);
+    add_edge!(g, 5, 6);
+    add_edge!(g, 4, 6);
+
+    connected_components(g);
 end

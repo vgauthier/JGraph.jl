@@ -13,3 +13,16 @@ function bfs(G, source)
     end
     return visited
 end
+
+function connected_components(G)
+    seen = []
+    components = []
+    for v in vertices(G)
+        if ~(v in seen)
+            c = bfs(G, v)
+            [push!(seen, elem) for elem in c]
+            push!(components, c)
+        end
+    end
+    return components
+end

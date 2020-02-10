@@ -13,11 +13,13 @@ export  AbstractGraph,
         add_edge!,
         add_vertex!,
         degree,
-        neighbors
+        neighbors,
+        vertices
 
 export  erdos_renyi
 
-export  bfs
+export  bfs,
+        connected_components
 
 # Include
 include("core.jl")
