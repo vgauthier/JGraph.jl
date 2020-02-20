@@ -16,6 +16,10 @@ export  AbstractGraph,
         neighbors,
         vertices
 
+export  Edge,
+        dst,
+        src
+
 export  erdos_renyi
 
 export  bfs,
@@ -25,4 +29,5 @@ export  bfs,
 include("core.jl")
 include("generator.jl")
 include("traversal.jl")
+include("edge.jl")
 end # module

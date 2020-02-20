@@ -34,9 +34,23 @@ using Statistics
     @test add_edge!(g, 3, 1) == true
     @test neighbors(g, 1) == [2, 3]
 
+    # test itertor
     g = Graph();
     add_vertex!(g, 10);
-    @test length(collect(vertices(g))) == 10
+    @test collect(vertices(g)) == collect(1:10)
+
+end
+
+@testset "JGraph.edge" begin
+    e1 = Edge((1, 2))
+    e2 = Edge(Pair(2, 3))
+    e3 = Edge((1, 2))
+    @test src(e1) == 1
+    @test dst(e1) == 2
+
+    @test src(e2) == 2
+    @test dst(e2) == 3
+    @test e1 == e3
 end
 
 @testset "JGraph.generator" begin

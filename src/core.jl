@@ -1,3 +1,5 @@
+import Base:show
+
 abstract type AbstractGraph end
 
 mutable struct Graph{T <: Integer} <: AbstractGraph
@@ -100,4 +102,21 @@ function neighbors(G::Graph, u)
     return G.adjlist[u]
 end
 
-vertices(G::Graph) = (1:length(G.adjlist));
+"""
+    vertices(G::Graph)
+
+vertices itertor
+"""
+vertices(G::Graph) = Base.OneTo(nv(G))
+
+#edges(g::AbstractSimpleGraph) = SimpleEdgeIter(g)
+
+"""
+    fadj(G::Graph)
+
+return the adjacency list of the graph
+"""
+fadj(G::Graph) = G.adjlist
+fadj(G::Graph, v::Integer) = G.adjlist[v]
+
+show(io::IO, G::Graph) = print(io, "Graph G(V,E) = ($(nv(G)), $(ne(G)))");
