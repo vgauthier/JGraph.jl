@@ -102,5 +102,8 @@ end
     add_edge!(g, 5, 6);
     add_edge!(g, 4, 6);
 
-    connected_components(g);
+    cc = connected_components(g);
+    for elem in cc 
+        @test length(elem) == 3
+    end
 end
