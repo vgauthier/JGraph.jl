@@ -43,14 +43,26 @@ end
 
 @testset "JGraph.edge" begin
     e1 = Edge((1, 2))
-    e2 = Edge(Pair(2, 3))
-    e3 = Edge((1, 2))
+    e2 = Edge(Pair(2, 1))
+    e3 = Edge((2, 3))
+    e4 = Edge((3, 2))
+    e5 = Edge((1, 2))
+    results = [e4, e3, e2, e1];
+
     @test src(e1) == 1
     @test dst(e1) == 2
 
     @test src(e2) == 2
-    @test dst(e2) == 3
-    @test e1 == e3
+    @test dst(e2) == 1
+    @test e1 == e5
+    
+    ## test iterator 
+    g = Graph();
+    add_edge!(g, 1, 2);
+    add_edge!(g, 2, 3);
+    for e in edges(g)
+        @test e == pop!(results)
+    end
 end
 
 @testset "JGraph.generator" begin

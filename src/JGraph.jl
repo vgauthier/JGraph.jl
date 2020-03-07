@@ -14,11 +14,13 @@ export  AbstractGraph,
         add_vertex!,
         degree,
         neighbors,
-        vertices
+        vertices,
+        edges
 
 export  Edge,
         dst,
-        src
+        src,
+        EdgeIter
 
 export  erdos_renyi
 
@@ -26,8 +28,9 @@ export  bfs,
         connected_components
 
 # Include
+include("edge.jl")
+include("edgeiter.jl")
 include("core.jl")
 include("generator.jl")
 include("traversal.jl")
-include("edge.jl")
 end # module

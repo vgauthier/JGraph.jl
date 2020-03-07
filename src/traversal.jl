@@ -5,7 +5,7 @@ function bfs(G, source)
     while ! isempty(q)
         v = popfirst!(q);
         for n in neighbors(G, v)
-            if ~(n in visited)
+            if !(n in visited)
                 push!(q, n);
                 push!(visited, n);
             end
@@ -18,7 +18,7 @@ function connected_components(G)
     seen = []
     components = []
     for v in vertices(G)
-        if ~(v in seen)
+        if !(v in seen)
             c = bfs(G, v)
             [push!(seen, elem) for elem in c]
             push!(components, c)

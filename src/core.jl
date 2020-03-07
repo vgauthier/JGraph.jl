@@ -1,4 +1,5 @@
 import Base:show
+import JGraph: Edge, EdgeIter
 
 abstract type AbstractGraph end
 
@@ -51,6 +52,8 @@ function has_edge(G::AbstractGraph, u::T, v::T) where T <: Integer
     end
 end
 
+has_edge(G::AbstractGraph, e::Edge) = has_edge(G, src(e), dst(e))
+
 """
     add_edge(G::AbstractGraph, u::T, v::T)
 
@@ -68,6 +71,8 @@ function add_edge!(G::AbstractGraph, u::T, v::T) where T <: Integer
     G.ne += 1;
     return true
 end
+
+add_edge!(G::AbstractGraph, e::Edge) = add_edge(G, src(e), dst(e))
 
 """
     add_edge(G::AbstractGraph, num_vertex)
@@ -98,6 +103,11 @@ function degree(G::Graph)
     degree_list
 end
 
+"""
+    neighbors(G::Graph, u)
+
+return the neighbors list adjacent to the node u
+"""
 function neighbors(G::Graph, u)
     return G.adjlist[u]
 end
@@ -109,7 +119,7 @@ vertices itertor
 """
 vertices(G::Graph) = Base.OneTo(nv(G))
 
-#edges(g::AbstractSimpleGraph) = SimpleEdgeIter(g)
+edges(g::AbstractGraph) = EdgeIter(g)
 
 """
     fadj(G::Graph)
@@ -119,4 +129,4 @@ return the adjacency list of the graph
 fadj(G::Graph) = G.adjlist
 fadj(G::Graph, v::Integer) = G.adjlist[v]
 
-show(io::IO, G::Graph) = print(io, "Graph G(V,E) = ($(nv(G)), $(ne(G)))");
+show(io::IO, G::Graph) = print(io, "Undirected Graph G(V,E) with |V|=$(nv(G)), |E|=$(ne(G))");
