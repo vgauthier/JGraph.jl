@@ -106,4 +106,7 @@ end
     for elem in cc 
         @test length(elem) == 3
     end
+
+    @test bfs(g, 1) == Set([2, 3, 1])
+    @test bfs(g, 4) == Set([4, 5, 6])
 end
