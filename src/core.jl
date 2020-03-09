@@ -90,6 +90,25 @@ function add_vertex!(G::AbstractGraph)
     return push!(G.adjlist, Vector{Int}());
 end
 
+function remove_edge!(G::AbstractGraph, u, v)
+    if has_edge(G, u, v)
+        G.adjlist[u] = deleteat!(G.adjlist[u], findall(x-> x == v, G.adjlist[u]));
+        G.adjlist[v] = deleteat!(G.adjlist[v], findall(x-> x == u, G.adjlist[v]));
+        return true
+    else
+        return false
+    end
+end
+
+remove_edge!(G::AbstractGraph, e::Edge) = remove_edge!(G, src(e), dst(e))
+
+function remove_vertex!(G::AbstractGraph, s)
+    for t in neighbors(G, s)
+        remove_edge!(G, s, t)
+    end
+    return true
+end
+
 """
     degree(G::Graph)
 
@@ -109,7 +128,7 @@ end
 return the neighbors list adjacent to the node u
 """
 function neighbors(G::Graph, u)
-    return G.adjlist[u]
+    return copy(G.adjlist[u])
 end
 
 """

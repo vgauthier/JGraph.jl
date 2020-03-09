@@ -39,6 +39,34 @@ using Statistics
     add_vertex!(g, 10);
     @test collect(vertices(g)) == collect(1:10)
 
+    # test remove edge
+    g = Graph()
+    add_edge!(g, 1, 2)
+    add_edge!(g, 2, 3)
+    add_edge!(g, 3, 1)
+
+    remove_edge!(g, 3, 1)
+
+    @test !has_edge(g, 3, 1)
+    @test !has_edge(g, 1, 3)
+
+    e = Edge((1, 2))
+    remove_edge!(g, e)
+
+    @test !has_edge(g, 2, 1)
+    @test !has_edge(g, 1, 2)
+
+    #  test remove all_edges incident to a node
+    g = Graph()
+    add_edge!(g, 1, 2)
+    add_edge!(g, 2, 3)
+    add_edge!(g, 3, 1)
+
+    remove_vertex!(g, 2)
+    @test !has_edge(g, 2, 1)
+    @test !has_edge(g, 1, 2)
+    @test !has_edge(g, 2, 3)
+    @test !has_edge(g, 3, 2)
 end
 
 @testset "JGraph.edge" begin
@@ -60,6 +88,9 @@ end
     g = Graph();
     add_edge!(g, 1, 2);
     add_edge!(g, 2, 3);
+
+    @test length(edges(g)) == 2
+
     for e in edges(g)
         @test e == pop!(results)
     end
